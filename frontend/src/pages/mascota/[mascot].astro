@@ -1,0 +1,14 @@
+---
+import Loader from '../../components/Loader.astro';
+export const prerender = false;
+const { mascot } = Astro.params;
+let loading = true;
+const data = await fetch(`https:/dog.ceo/api/breeds/image/${mascot}`).then((res) => res.json());
+loading = false;
+import MascotaCard from '../../components/MascotaCard.astro';
+---
+
+<div class="flex justify-center">
+    <MascotaCard imgUrl={data.message} />
+</div>
+
