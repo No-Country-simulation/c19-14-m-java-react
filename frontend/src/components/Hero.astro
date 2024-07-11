@@ -1,16 +1,23 @@
 ---
+import { Image } from 'astro:assets';
+import HeroImage from '../assets/heroImg.png';
 
 ---
 
-<section>
-    <div class="hero">
-        <h2>
-            <span>Hi, I'm</span>
-            <span>John Doe</span>
-            <span>Web Developer</span>
+<section class="flex gap-14 w-full my-10">
+    <div class="flex flex-col flex-1 justify-center gap-y-16 ">
+        <h2 class="text-6xl font-semibold text-black">
+            Devuelve la felicidad con
+            <span class="text-primary">
+                PetFinder
+            </span>
         </h2>
-        <p>
-            I'm a web developer based in New York, specializing in building (and occasionally designing) exceptional websites, applications, and everything in between.
-        </p>
+        <div class="text-black">
+            <button class="rounded-[2rem] text-sm py-2 px-4 font-semibold bg-primary ">Quiero Adoptar</button>
+            <button class="rounded-[2rem] text-sm py-2 px-4 font-semibold border-primary border-[1px]">Dar en Adopcion</button>
+        </div>
+    </div>
+    <div class="flex-1 flex justify-center">
+        <Image src={HeroImage} alt="Hero image" width={1920} height={1080} class='size-[400px] rounded-full object-cover'/>
     </div>
 </section>
