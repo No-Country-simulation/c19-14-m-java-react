@@ -18,7 +18,7 @@ public class AdoptionPet {
     private LocalDate date;
     private String state;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "pet_id", nullable = false)
     private Pet pet;
 

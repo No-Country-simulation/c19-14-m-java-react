@@ -21,13 +21,14 @@ public class Pet {
     private String description;
     private String photo;
     private String type;
+    private Boolean isAvailable;
 
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
     private List<Vaccine> vaccines;
 
-    @OneToOne(mappedBy = "pet")
-    private AdoptionPet adoptionPet;
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
+    private List<AdoptionPet> adoptionPets;
 
-    @OneToOne(mappedBy = "pet")
-    private OfferPet offerPet;
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
+    private List<OfferPet> offerPets;
 }
