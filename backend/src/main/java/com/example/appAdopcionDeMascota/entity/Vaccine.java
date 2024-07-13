@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Vaccination {
+public class Vaccine {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +21,6 @@ public class Vaccination {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "history_id")
-    private History history;
+    @JoinColumn(name = "pet_id", nullable = false)
+    private Pet pet;
 }

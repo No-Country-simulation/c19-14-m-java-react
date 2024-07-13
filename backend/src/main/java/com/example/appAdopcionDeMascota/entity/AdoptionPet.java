@@ -5,22 +5,26 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.time.LocalDate;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class History {
+public class AdoptionPet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String description;
-    private String weight;
+    private LocalDate date;
+    private String state;
 
-    @OneToOne(mappedBy = "history", cascade = CascadeType.ALL, fetch = FetchType.LAZY )
+    @OneToOne
+    @JoinColumn(name = "pet_id", nullable = false)
     private Pet pet;
 
-    @OneToMany(mappedBy = "history", cascade = CascadeType.ALL, fetch = FetchType.LAZY )
-    private List<Vaccination> vaccination;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+
 }

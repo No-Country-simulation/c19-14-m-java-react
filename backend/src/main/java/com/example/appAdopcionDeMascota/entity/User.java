@@ -30,6 +30,13 @@ public class User {
     )
     private Set<Role> roles;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Pet> pets;
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+
+    @OneToMany(mappedBy = "user")
+    private List<AdoptionPet> adoptionPets;
+
+    @OneToMany(mappedBy = "user")
+    private List<OfferPet> offerPets;
 }

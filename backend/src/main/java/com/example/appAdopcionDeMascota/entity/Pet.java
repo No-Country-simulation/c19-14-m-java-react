@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,11 +22,12 @@ public class Pet {
     private String photo;
     private String type;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
+    private List<Vaccine> vaccines;
 
-    @OneToOne
-    @JoinColumn(name = "history_id", nullable = false, referencedColumnName = "id")
-    private History history;
+    @OneToOne(mappedBy = "pet")
+    private AdoptionPet adoptionPet;
+
+    @OneToOne(mappedBy = "pet")
+    private OfferPet offerPet;
 }
