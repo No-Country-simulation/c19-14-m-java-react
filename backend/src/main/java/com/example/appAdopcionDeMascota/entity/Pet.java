@@ -16,11 +16,14 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String type;
     private Integer age;
     private String race;
+    private String gender;
+    private String color;
+    private Float weight;
     private String description;
     private String photo;
-    private String type;
     private Boolean isAvailable;
 
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
