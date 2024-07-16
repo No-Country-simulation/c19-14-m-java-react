@@ -20,7 +20,8 @@ public class AppAdopcionDeMascotaApplication {
 		SpringApplication.run(AppAdopcionDeMascotaApplication.class, args);
 	}
 
-	/*@Bean
+	/*
+	@Bean
 	CommandLineRunner init(UserRepository userRepository) {
 		return args -> {
 			// CREATE PERMISSIONS
