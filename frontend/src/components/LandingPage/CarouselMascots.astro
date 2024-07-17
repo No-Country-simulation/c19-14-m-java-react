@@ -1,0 +1,192 @@
+---
+const data=[
+    {
+        img: 'https://cdn.forbes.com.mx/2023/03/perros-mascota.webp',
+        nameMascot: 'Luna',
+        description: 'Luna es una gatita muy cariñosa y juguetona. Le encanta dormir en las piernas de su dueño y jugar con sus juguetes favoritos. Luna es muy sociable y se lleva bien con otros gatos y perros.',
+        ubication: 'Bogotá, Colombia',
+    },
+    {
+        img: 'https://cdn.forbes.com.mx/2023/03/perros-mascota.webp',
+        nameMascot: 'Luna',
+        description: 'Luna es una gatita muy cariñosa y juguetona. Le encanta dormir en las piernas de su dueño y jugar con sus juguetes favoritos. Luna es muy sociable y se lleva bien con otros gatos y perros.',
+        ubication: 'Bogotá, Colombia',
+    },
+    {
+        img: 'https://cdn.forbes.com.mx/2023/03/perros-mascota.webp',
+        nameMascot: 'Luna',
+        description: 'Luna es una gatita muy cariñosa y juguetona. Le encanta dormir en las piernas de su dueño y jugar con sus juguetes favoritos. Luna es muy sociable y se lleva bien con otros gatos y perros.',
+        ubication: 'Bogotá, Colombia',
+    },
+    {
+        img: 'https://cdn.forbes.com.mx/2023/03/perros-mascota.webp',
+        nameMascot: 'Luna',
+        description: 'Luna es una gatita muy cariñosa y juguetona. Le encanta dormir en las piernas de su dueño y jugar con sus juguetes favoritos. Luna es muy sociable y se lleva bien con otros gatos y perros.',
+        ubication: 'Bogotá, Colombia',
+    },
+    {
+        img: 'https://cdn.forbes.com.mx/2023/03/perros-mascota.webp',
+        nameMascot: 'Luna',
+        description: 'Luna es una gatita muy cariñosa y juguetona. Le encanta dormir en las piernas de su dueño y jugar con sus juguetes favoritos. Luna es muy sociable y se lleva bien con otros gatos y perros.',
+        ubication: 'Bogotá, Colombia',
+    },
+    {
+        img: 'https://cdn.forbes.com.mx/2023/03/perros-mascota.webp',
+        nameMascot: 'Luna',
+        description: 'Luna es una gatita muy cariñosa y juguetona. Le encanta dormir en las piernas de su dueño y jugar con sus juguetes favoritos. Luna es muy sociable y se lleva bien con otros gatos y perros.',
+        ubication: 'Bogotá, Colombia',
+    },
+    {
+        img: 'https://cdn.forbes.com.mx/2023/03/perros-mascota.webp',
+        nameMascot: 'Luna',
+        description: 'Luna es una gatita muy cariñosa y juguetona. Le encanta dormir en las piernas de su dueño y jugar con sus juguetes favoritos. Luna es muy sociable y se lleva bien con otros gatos y perros.',
+        ubication: 'Bogotá, Colombia',
+    },
+    {
+        img: 'https://cdn.forbes.com.mx/2023/03/perros-mascota.webp',
+        nameMascot: 'Luna',
+        description: 'Luna es una gatita muy cariñosa y juguetona. Le encanta dormir en las piernas de su dueño y jugar con sus juguetes favoritos. Luna es muy sociable y se lleva bien con otros gatos y perros.',
+        ubication: 'Bogotá, Colombia',
+    },
+    {
+        img: 'https://cdn.forbes.com.mx/2023/03/perros-mascota.webp',
+        nameMascot: 'Luna',
+        description: 'Luna es una gatita muy cariñosa y juguetona. Le encanta dormir en las piernas de su dueño y jugar con sus juguetes favoritos. Luna es muy sociable y se lleva bien con otros gatos y perros.',
+        ubication: 'Bogotá, Colombia',
+    }
+]
+
+import TitleSection from "../TitleSection.astro"
+import { Image } from "astro:assets"
+import BtnNext from '../../assets/smallArrow.svg'
+import OneStepIcon from '../../assets/01ProcessAdopt.png'
+import SecondStepIcon from '../../assets/02ProcessAdopt.png'
+import ThirdStepIcon from '../../assets/03ProcessAdopt.png'
+import FourthStepIcon from '../../assets/04ProcessAdopt.png'
+---
+
+<section class="mb-16">
+    <TitleSection title="Encuentra a tu nuevo mejor amigo"/>
+    <div class="relative px-14 mb-6">
+        <div class="wrapper-carousel flex overflow-scroll gap-10 snap-x w-full">
+            {
+                data.map((mascot, index) => (
+                    <div class="card-carousel">
+                        <div class="carousel-snapper rounded-[1rem] border-[1px] border-[#D9D9D9] overflow-hidden  ">
+                            <img src={mascot.img} alt={mascot.nameMascot} class="w-full object-cover"/>
+                            <div class="p-4 flex flex-col gap-2">
+                                <h3 class="font-bold">{mascot.nameMascot}</h3>
+                                <p class="text-tertiary font-bold">{mascot.ubication}</p>
+                                <p>{mascot.description}</p>
+                                <button class="border-secondary border-[1px] text-secondary rounded-[2rem] px-4 py-1 mx-auto mt-6">
+                                    Mas informacion
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+        <button class="absolute top-[50%] left-0" id="btn-prev">
+            <Image src={BtnNext} alt="Next" class="size-10 "/>
+        </button>
+        <button class="absolute top-[50%] right-0" id="btn-next">
+            <Image src={BtnNext} alt="Next" class="size-10 transform rotate-180"/>
+        </button>
+    </div>
+    <TitleSection title="Como es el proceso de adopción"/>
+    <div class="grid gridcols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div class="flex flex-col items-center border-[1px] border-gray-200 rounded-2xl">
+            <span class="bg-primary p-4 rounded-full font-bold aspect-square text-center -translate-y-7">1</span>
+            <Image src={OneStepIcon} alt="">
+            <h3 class="font-bold text-center text-black">
+                Descubre a nuestros peludos amigos
+            </h3>
+        </div>
+        <div class="flex flex-col items-center">
+            <span class="bg-primary p-4 rounded-full font-bold aspect-square text-center">2</span>
+            <Image src={SecondStepIcon} alt="">
+            <h3 class="font-semibold text-center">
+                Formulario de adopcion
+            </h3>
+        </div>
+        <div class="flex flex-col items-center">
+            <span class="bg-primary p-4 rounded-full font-bold aspect-square text-center">3</span>
+            <Image src={ThirdStepIcon} alt="">
+            <h3 class="font-semibold text-center">
+                Evaluación y entrevista
+            </h3>
+        </div>
+        
+        <div class="flex flex-col items-center">
+            <span class="bg-primary p-4 rounded-full font-bold aspect-square text-center">4</span>
+            <Image src={FourthStepIcon} alt="">
+            <h3 class="font-semibold text-center">
+                Aprobacion final
+            </h3>
+        </div>
+    </div>
+</section>
+
+<style>
+    .wrapper-carousel{
+        scroll-snap-type: x mandatory;
+    }
+    .wrapper-carousel::-webkit-scrollbar {
+        display: none;
+    }
+    .wrapper-carousel {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .wrapper-carousel::-webkit-scrollbar {
+        display: none;
+    }
+
+    .card-carousel{
+        flex: 0 0 calc(25% - 40px);
+    }
+    .carousel-snapper{
+        scroll-snap-align: center;
+    }
+    @media (max-width: 768px){
+        .card-carousel{
+            flex: 0 0 calc(50% - 40px);
+        }
+    }
+
+    @media (max-width: 640px){
+        .card-carousel{
+            flex: 0 0 calc(100% - 40px);
+        }
+    }
+
+
+</style>
+
+<script>
+    const btnNext = document.getElementById('btn-next')
+    const btnPrev = document.getElementById('btn-prev')
+    const wrapperCarousel = document.querySelector('.wrapper-carousel')
+
+    let sizeWindow = window.innerWidth
+    btnNext.addEventListener('click', () => {
+        if (sizeWindow > 640) {
+            wrapperCarousel.scrollBy({
+                left: 350,
+                behavior: 'smooth'
+            })
+        } else {
+            wrapperCarousel.scrollBy({
+                left: 220,
+                behavior: 'smooth'
+            })
+        }
+    })
+
+    btnPrev.addEventListener('click', () => {
+        wrapperCarousel.scrollBy({
+            left: -300,
+            behavior: 'smooth'
+        })
+    })
