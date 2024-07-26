@@ -1,0 +1,32 @@
+---
+import GoogleIcon from '../../assets/icons/google.svg';
+import AppleIcon from '../../assets/icons/Apple.svg';
+import FacebookIcon from '../../assets/icons/facebook.svg';
+import Image from 'astro/components/Image.astro';
+---
+<div class="flex flex-col space-y-4">
+    <a href="#" class="flex items-center space-x-3 p-3 px-6 border border-gray-300 rounded-[2rem] hover:bg-gray-100 transition duration-300">
+        <Image
+            src={GoogleIcon}
+            alt="Google Logo"
+            class="size-6"
+        />
+        <span class="text-md font-medium">Continuar con Google</span>
+    </a>
+    <a href="#" class="flex items-center space-x-3 p-3 px-6 border border-gray-300 rounded-[2rem] hover:bg-gray-100 transition duration-300">
+        <Image
+            src={FacebookIcon}
+            alt="Facebook Logo"
+            class="size-6 p-1"
+        />
+        <span class="text-md font-medium">Continuar con Facebook</span>
+    </a>
+    <a href="#" class="flex items-center space-x-3 p-3 px-6 border border-gray-300 rounded-[2rem] hover:bg-gray-100 transition duration-300">
+        <Image
+            src={AppleIcon}
+            alt="Twitter Logo"
+            class="size-6 p-1"
+        />
+        <span class="text-md font-medium">Continuar con Twitter</span>
+    </a>
+</div>

@@ -1,0 +1,64 @@
+---
+import SSOButtons from "../SSOButtons/Buttons.astro"
+---
+<section class="flex justify-center items-center p-4 max-h-screen">
+    <div class="bg-white w-full p-4 rounded text-gray-700 sm:w-96 sm:shadow-xl sm:rounded-2xl">
+        <div class="flex justify-end">
+            <img
+                src="https://www.ns-logo.com/wp-content/uploads/2020/07/logo-icon-png-8.png"
+                alt=""
+                class="w-8"
+            />
+        </div>
+
+        <p class="text-center pb-2 text-3xl font-bold text-secondary">Inicio de sesión</p>
+
+        
+        <div class="py-5">
+            <SSOButtons />
+        </div>
+        
+        <hr />
+
+        <form class="my-5" id="loginForm" action="#">
+            <div class="pb-5 flex flex-col gap-2">
+                <label for="" class="font-semibold">Correo electronico</label>
+                <input
+                    type="text"
+                    id="emailLabel"
+                    class="block w-full p-2 rounded shadow bg-gray-100 focus:ring-2 focus:ring-sectext-secondary focus:border-transparent focus:outline-none"
+                    placeholder="example@gmail.com"
+                />
+            </div>
+
+            <div class="pb-5 flex flex-col gap-2">
+                <label for="" class="font-semibold">Contraseña</label>
+                <input
+                    type="text"
+                    id="passLabel"
+                    class="block w-full p-2 rounded shadow bg-gray-100 focus:ring-2 focus:ring-sectext-secondary focus:border-transparent focus:outline-none"
+                    placeholder="********"
+                />
+            </div>
+
+            <div class="pb-5 text-left text-sm underline">
+                <a href="#" class="text-secondary">¿Olvidaste la contraseña?</a>
+            </div>
+
+            <button
+                type="submit"
+                class="bg-secondary p-2 w-full text-white rounded-[2rem] font-bold"
+            >
+                Ingresar
+            </button>
+            <div class="py-5 text-sm text-center">
+                <p>
+                    ¿ Aun no estas registrado?
+                    <a href="/registro" class="text-secondary">Registrate ahora!</a>
+                </p>
+            </div>
+        </form>
+
+        
+    </div>
+</section>

@@ -70,7 +70,7 @@ import FourthStepIcon from '../../assets/04ProcessAdopt.png'
     <div class="relative px-14 mb-6">
         <div class="wrapper-carousel flex overflow-scroll gap-10 snap-x w-full">
             {
-                data.map((mascot, index) => (
+                data.map((mascot) => (
                     <div class="card-carousel">
                         <div class="carousel-snapper rounded-[1rem] border-[1px] border-[#D9D9D9] overflow-hidden  ">
                             <img src={mascot.img} alt={mascot.nameMascot} class="w-full object-cover"/>
@@ -94,33 +94,42 @@ import FourthStepIcon from '../../assets/04ProcessAdopt.png'
             <Image src={BtnNext} alt="Next" class="size-10 transform rotate-180"/>
         </button>
     </div>
+    
     <TitleSection title="Como es el proceso de adopción"/>
-    <div class="grid gridcols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div class="grid gridcols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pt-8">
         <div class="flex flex-col items-center border-[1px] border-gray-200 rounded-2xl">
             <span class="bg-primary p-4 rounded-full font-bold aspect-square text-center -translate-y-7">1</span>
-            <Image src={OneStepIcon} alt="">
-            <h3 class="font-bold text-center text-black">
+            <div>
+                <Image src={OneStepIcon} alt="icono de paso" class="object-cover size-28">
+            </div>
+            <h4 class="font-semibold text-center text-black px-14">
                 Descubre a nuestros peludos amigos
-            </h3>
+            </h4>
         </div>
-        <div class="flex flex-col items-center">
-            <span class="bg-primary p-4 rounded-full font-bold aspect-square text-center">2</span>
-            <Image src={SecondStepIcon} alt="">
+        <div class="flex flex-col items-center border-[1px] border-gray-200 rounded-2xl">
+            <span class="bg-primary p-4 rounded-full font-bold aspect-square text-center -translate-y-7">2</span>
+            <div>
+                <Image src={SecondStepIcon} alt="icono de paso" class="object-cover size-28">
+            </div>
             <h3 class="font-semibold text-center">
                 Formulario de adopcion
             </h3>
         </div>
-        <div class="flex flex-col items-center">
-            <span class="bg-primary p-4 rounded-full font-bold aspect-square text-center">3</span>
-            <Image src={ThirdStepIcon} alt="">
+        <div class="flex flex-col items-center border-[1px] border-gray-200 rounded-2xl">
+            <span class="bg-primary p-4 rounded-full font-bold aspect-square text-center -translate-y-7">3</span>
+            <div>
+                <Image src={ThirdStepIcon} alt="icono de paso" class="object-cover size-28">
+            </div>
             <h3 class="font-semibold text-center">
                 Evaluación y entrevista
             </h3>
         </div>
         
-        <div class="flex flex-col items-center">
-            <span class="bg-primary p-4 rounded-full font-bold aspect-square text-center">4</span>
-            <Image src={FourthStepIcon} alt="">
+        <div class="flex flex-col items-center border-[1px] border-gray-200 rounded-2xl">
+            <span class="bg-primary p-4 rounded-full font-bold aspect-square text-center -translate-y-7">4</span>
+            <div>
+                <Image src={FourthStepIcon} alt="icono de paso" class="object-cover size-28">
+            </div>
             <h3 class="font-semibold text-center">
                 Aprobacion final
             </h3>

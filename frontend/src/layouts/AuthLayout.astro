@@ -1,10 +1,23 @@
 ---
-
+import Image from 'astro/components/Image.astro';
+import ImageLogin from '../assets/cover-login.jpg';
 ---
 
-<section class="grid lg:grid-cols-2">
-    <slot/>
-    <div>
-        <h5>imagen</h5>
-    </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main class="h-screen">
+        <section class="h-screen grid grid-cols-1 lg:grid-cols-2">
+            <slot/>
+            <div class="relative h-screen overflow-hidde  justify-center items-center hidden lg:flex">
+                <Image src={ImageLogin} width={800} height={1200} alt="Login" class="size-full object-cover"/>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
