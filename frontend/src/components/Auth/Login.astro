@@ -26,6 +26,7 @@ import SSOButtons from "../SSOButtons/Buttons.astro"
                 <input
                     type="text"
                     id="emailLabel"
+                    name="email"
                     class="block w-full p-2 rounded shadow bg-gray-100 focus:ring-2 focus:ring-sectext-secondary focus:border-transparent focus:outline-none"
                     placeholder="example@gmail.com"
                 />
@@ -34,7 +35,8 @@ import SSOButtons from "../SSOButtons/Buttons.astro"
             <div class="pb-5 flex flex-col gap-2">
                 <label for="" class="font-semibold">Contraseña</label>
                 <input
-                    type="text"
+                    type="password"
+                    name="password"
                     id="passLabel"
                     class="block w-full p-2 rounded shadow bg-gray-100 focus:ring-2 focus:ring-sectext-secondary focus:border-transparent focus:outline-none"
                     placeholder="********"
@@ -47,7 +49,8 @@ import SSOButtons from "../SSOButtons/Buttons.astro"
 
             <button
                 type="submit"
-                class="bg-secondary p-2 w-full text-white rounded-[2rem] font-bold"
+                id="loginButton"
+                class="bg-secondary p-2 w-full text-white rounded-[2rem] font-bold active:scale-95 hover:scale-105 transition-transform"
             >
                 Ingresar
             </button>
@@ -62,3 +65,29 @@ import SSOButtons from "../SSOButtons/Buttons.astro"
         
     </div>
 </section>
+
+<script>
+    const API_URL = 'https://appadoptamascota.onrender.com/api/v1';
+    const loginForm = document.getElementById('loginForm');
+
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('emailLabel').value;
+        const password = document.getElementById('passLabel').value;
+
+        const response = await fetch(`${API_URL}/auth/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password }),
+        });
+
+        const data = await response.json();
+        console.log(data);
+        if (data.status === 'success') {
+            localStorage.setItem('token', data.token);
+            window.location.href = '/dashboard';
+        }
+    });
+</script>

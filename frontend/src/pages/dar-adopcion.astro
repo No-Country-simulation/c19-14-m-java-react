@@ -1,6 +1,9 @@
 ---
 import Button from "../components/Button.astro";
 import Layout from "../layouts/Layout.astro";
+import ImagePlaceholderMascot from "../assets/Designer.png";
+import ImagePlaceholder from "../assets/placeholder-upload.png";
+import Image from "astro/components/Image.astro";
 ---
 
 <Layout title="Dar en adopción">
@@ -9,91 +12,173 @@ import Layout from "../layouts/Layout.astro";
             Preparando a tu mascota para un nuevo hogar
         </h2>
         <div class="flex gap-10">
-            <img class="flex-1 rounded-xl object-cover object-center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3dYSeY0r_FRNlCQKVFNbpFa_5vUuvvWujQ&s" alt="">
-            <div class="flex-2">
-                <form class="flex flex-col gap-y-3">
-                    <div class="grid grid-cols-3">
+            <div class="flex-1 relative rounded-[2rem] overflow-hidden">
+                <div class="flex justify-center items-center absolute h-full w-full bg-white/70">
+                    <Image class="object-contain object-center p-10" src={ImagePlaceholder} alt="" width={800} height={1000} />
+                </div>
+                <Image class=" object-cover object-center w-full h-[360px]" src={ImagePlaceholderMascot} alt="" width={800} height={1000} />
+            </div>
+            <div class="flex-[1.5]">
+                <form class="flex flex-col gap-y-3" id="adoption-form">
+                    <div class="grid grid-cols-3 gap-4 font-semibold">
                         <div class="flex flex-col">
-                            <label for="">Nombre</label>
+                            <label for="name">Nombre</label>
                             <input 
                                 type="text" 
+                                id="name"
+                                name="name"
                                 placeholder="Nombre de tu mascota"
-                                class="border-[2px] border-gray-200 rounded-lg px-2 py-1 w-full"    
+                                class="border-[2px] border-gray-200 rounded-lg px-6 py-1 w-full h-full"    
                             >
                         </div>
                         <div class="flex flex-col">
-                            <label for="">Nickname</label>
+                            <label for="nickname">Nickname</label>
                             <input 
                                 type="text" 
+                                id="nickname"
+                                name="nickname"
                                 placeholder="Apodo de tu mascota"
-                                class="border-[2px] border-gray-200 rounded-lg px-2 py-1 w-full"    
+                                class="border-[2px] border-gray-200 rounded-lg px-6 py-1 w-full h-full"    
                             >
                         </div>
                         <div class="flex flex-col">
-                            <label for="">Edad</label>
-                            <select name="age" id="age" class="border-[2px] border-gray-200 rounded-lg px-2 py-1 w-full">
+                            <label for="age">Edad</label>
+                            <select name="age" id="age" class="border-[2px] border-gray-200 rounded-lg px-6 py-1 w-full h-full">
                                 <option value="cachorro">Cachorro</option>
                                 <option value="joven">Joven</option>
                                 <option value="adulto">Adulto</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-3">
                         <div class="flex flex-col">
-                            <label for="">Ubicacion,Direccion</label>
+                            <label for="location">Ubicación, Dirección</label>
                             <input 
                                 type="text" 
+                                id="location"
+                                name="location"
                                 placeholder="Argentina, Av. Siempre Viva 123"
-                                class="border-[2px] border-gray-200 rounded-lg px-2 py-1 w-full"    
+                                class="border-[2px] border-gray-200 rounded-lg px-6 py-1 w-full h-full"    
                             >
                         </div>
                         <div class="flex flex-col">
-                            <label for="">Especie</label>
-                            <select name="specie" id="specie" class="border-[2px] border-gray-200 rounded-lg px-2 py-1 w-full">
+                            <label for="specie">Especie</label>
+                            <select name="specie" id="specie" class="border-[2px] border-gray-200 rounded-lg px-6 py-1 w-full h-full">
                                 <option value="perro">Perro</option>
                                 <option value="gato">Gato</option>
                                 <option value="otro">Otro</option>
                             </select>
                         </div>
                         <div class="flex flex-col">
-                            <label for="">Raza</label>
-                            <select name="raza" id="raza" class="border-[2px] border-gray-200 rounded-lg px-2 py-1 w-full">
+                            <label for="raza">Raza</label>
+                            <select name="raza" id="raza" class="border-[2px] border-gray-200 rounded-lg px-6 py-1 w-full h-full">
                                 <option value="labrador">Labrador</option>
                                 <option value="bulldog">Bulldog</option>
                                 <option value="otro">Otro</option>
                             </select>
                         </div>
-                    </div>
-                    <div>
-
+                        <div class="flex flex-col col-span-2">
+                            <label for="description">Descripción</label>
+                            <textarea 
+                                name="description" 
+                                id="description" 
+                                cols="30" 
+                                rows="5"
+                                placeholder="Descripción de tu mascota"
+                                class="border-[2px] border-gray-200 rounded-lg px-6 py-1 w-full h-full resize-none"
+                            ></textarea>
+                        </div>
+                        <div class="flex flex-col justify-evenly">
+                            <div>
+                                <label for="weight">Peso</label>
+                                <input 
+                                    type="number" 
+                                    name="weight" 
+                                    id="weight" 
+                                    placeholder="Peso de tu mascota"
+                                    class="border-[2px] border-gray-200 rounded-lg px-6 py-1 w-full"
+                                >
+                            </div>
+                            <div>
+                                <label for="sex">Sexo</label>
+                                <div>
+                                    <input type="radio" name="sex" value="hembra" id="female" class="rounded-full">
+                                    <label for="female">Hembra</label>
+                                    <input type="radio" name="sex" value="macho" id="male">
+                                    <label for="male">Macho</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="vaccinated">
+                            <label for="vaccinated">Vacunas al día</label>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
         <div>
-            <h3 class="my-10 text-secondary font-bold text-xl">Elige sus cuidados y caracteristicas</h3>
+            <h3 class="my-10 text-secondary font-bold text-xl">Elige sus cuidados y características</h3>
             <div class="grid grid-cols-3 gap-8">
-                <div class="border-[2px] border-gray-300 rounded-xl shadow-lg p-5 flex flex-col gap-4">
-                    <h4 class="text-secondary font-bold text-xl mt-3">Salud e intervenciones</h4>
-                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Desparasitado</span>
-                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Antidepresivos</span>
-                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Esterelizacion</span>
-                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Dieta Seca</span>
+                <div class="border-[2px] border-[#E0E0E0] rounded-[2rem] shadow-sm p-5 py-8 flex flex-col gap-4">
+                    <h4 class="text-secondary font-bold text-xl">Salud e intervenciones</h4>
+                    <button class="rounded-[2rem] px-6 py-1 border-[2px] border-gray-200 w-fit">Desparasitado</button>
+                    <button class="rounded-[2rem] px-6 py-1 border-[2px] border-gray-200 w-fit">Antidepresivos</button>
+                    <button class="rounded-[2rem] px-6 py-1 border-[2px] border-gray-200 w-fit">Esterilización</button>
+                    <button class="rounded-[2rem] px-6 py-1 border-[2px] border-gray-200 w-fit">Dieta Seca</button>
                 </div>
-                <div class="border-[2px] border-gray-300 rounded-xl shadow-lg p-5 flex flex-col gap-4">
-                    <h4 class="text-secondary font-bold text-xl mt-3">Comportamiento</h4>
-                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Entrenado</span>
-                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Tranquilo</span>
-                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Energico</span>
-                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Espacioso</span>
+                <div class="border-[2px] border-[#E0E0E0] rounded-[2rem] shadow-sm p-5 py-8 flex flex-col gap-4">
+                    <h4 class="text-secondary font-bold text-xl">Comportamiento</h4>
+                    <button class="rounded-[2rem] px-6 py-1 border-[2px] border-gray-200 w-fit">Entrenado</button>
+                    <button class="rounded-[2rem] px-6 py-1 border-[2px] border-gray-200 w-fit">Tranquilo</button>
+                    <button class="rounded-[2rem] px-6 py-1 border-[2px] border-gray-200 w-fit">Energético</button>
+                    <button class="rounded-[2rem] px-6 py-1 border-[2px] border-gray-200 w-fit">Espacioso</button>
                 </div>
-                <div class="border-[2px] border-gray-300 rounded-xl shadow-lg p-5 flex flex-col items-center justify-center">
+                <div class="border-[2px] border-[#E0E0E0] rounded-[2rem] shadow-sm p-5 py-8 flex flex-col items-center justify-center">
                     <h4 class="text-secondary font-bold text-xl text-center">
                         ¿Listos para darle un nuevo hogar?
                     </h4>
-                    <Button text="Publicar" path="publicar"/>
+                    <Button text="Publicar" path="publicar" id="submit-btn-adopt" variant="primary"/>
                 </div>
             </div>
         </div>
     </section>
 </Layout>
+
+<script>
+    document.getElementById('submit-btn-adopt').addEventListener('click', async (e) => {
+        e.preventDefault();
+        const form = document.getElementById('adoption-form');
+        const formData = new FormData(form);
+
+        const data = {
+            name: formData.get('name'),
+            nickname: formData.get('nickname'),
+            age: formData.get('age'),
+            location: formData.get('location'),
+            specie: formData.get('specie'),
+            raza: formData.get('raza'),
+            description: formData.get('description'),
+            weight: formData.get('weight'),
+            sex: formData.get('sex'),
+            vaccinated: formData.get('vaccinated') ? true : false
+        };
+        console.log(data);
+        try {
+            const response = await fetch('https://tu-servidor.com/api/adoptar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                alert('Mascota publicada exitosamente');
+            } else {
+                alert('Hubo un error al publicar la mascota');
+            }
+        } catch (error) {
+            console.error('Error al hacer la solicitud:', error);
+            alert('Hubo un error al hacer la solicitud');
+        }
+    });
+</script>
