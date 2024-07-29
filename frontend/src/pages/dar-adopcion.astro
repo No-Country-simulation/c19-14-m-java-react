@@ -1,0 +1,99 @@
+---
+import Button from "../components/Button.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Dar en adopción">
+    <section class="mx-auto max-w-[1200px]">
+        <h2 class="text-3xl font-bold my-8">
+            Preparando a tu mascota para un nuevo hogar
+        </h2>
+        <div class="flex gap-10">
+            <img class="flex-1 rounded-xl object-cover object-center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3dYSeY0r_FRNlCQKVFNbpFa_5vUuvvWujQ&s" alt="">
+            <div class="flex-2">
+                <form class="flex flex-col gap-y-3">
+                    <div class="grid grid-cols-3">
+                        <div class="flex flex-col">
+                            <label for="">Nombre</label>
+                            <input 
+                                type="text" 
+                                placeholder="Nombre de tu mascota"
+                                class="border-[2px] border-gray-200 rounded-lg px-2 py-1 w-full"    
+                            >
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="">Nickname</label>
+                            <input 
+                                type="text" 
+                                placeholder="Apodo de tu mascota"
+                                class="border-[2px] border-gray-200 rounded-lg px-2 py-1 w-full"    
+                            >
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="">Edad</label>
+                            <select name="age" id="age" class="border-[2px] border-gray-200 rounded-lg px-2 py-1 w-full">
+                                <option value="cachorro">Cachorro</option>
+                                <option value="joven">Joven</option>
+                                <option value="adulto">Adulto</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3">
+                        <div class="flex flex-col">
+                            <label for="">Ubicacion,Direccion</label>
+                            <input 
+                                type="text" 
+                                placeholder="Argentina, Av. Siempre Viva 123"
+                                class="border-[2px] border-gray-200 rounded-lg px-2 py-1 w-full"    
+                            >
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="">Especie</label>
+                            <select name="specie" id="specie" class="border-[2px] border-gray-200 rounded-lg px-2 py-1 w-full">
+                                <option value="perro">Perro</option>
+                                <option value="gato">Gato</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="">Raza</label>
+                            <select name="raza" id="raza" class="border-[2px] border-gray-200 rounded-lg px-2 py-1 w-full">
+                                <option value="labrador">Labrador</option>
+                                <option value="bulldog">Bulldog</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div>
+            <h3 class="my-10 text-secondary font-bold text-xl">Elige sus cuidados y caracteristicas</h3>
+            <div class="grid grid-cols-3 gap-8">
+                <div class="border-[2px] border-gray-300 rounded-xl shadow-lg p-5 flex flex-col gap-4">
+                    <h4 class="text-secondary font-bold text-xl mt-3">Salud e intervenciones</h4>
+                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Desparasitado</span>
+                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Antidepresivos</span>
+                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Esterelizacion</span>
+                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Dieta Seca</span>
+                </div>
+                <div class="border-[2px] border-gray-300 rounded-xl shadow-lg p-5 flex flex-col gap-4">
+                    <h4 class="text-secondary font-bold text-xl mt-3">Comportamiento</h4>
+                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Entrenado</span>
+                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Tranquilo</span>
+                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Energico</span>
+                    <span class="rounded-[2rem] px-2 py-1 border-[2px] border-gray-200 w-fit">Espacioso</span>
+                </div>
+                <div class="border-[2px] border-gray-300 rounded-xl shadow-lg p-5 flex flex-col items-center justify-center">
+                    <h4 class="text-secondary font-bold text-xl text-center">
+                        ¿Listos para darle un nuevo hogar?
+                    </h4>
+                    <Button text="Publicar" path="publicar"/>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

@@ -1,6 +1,6 @@
 ---
-const {text,variant} = Astro.props;;
+const {text,variant,path} = Astro.props;;
 ---
-<button class={`border-secondary font-bold border-[1px] text-secondary rounded-[2rem] px-4 sm:px-8 py-2 mx-auto mt-6 ${variant =="primary"?"bg-secondary text-white":"bg-white"}`}>
+<a class={`border-secondary font-bold border-[1px] text-secondary rounded-[2rem] px-4 sm:px-8 py-2 mx-auto mt-6 ${variant =="primary"?"bg-secondary text-white":"bg-white"}`} href={path}>
     {text}
-</button>
+</a>

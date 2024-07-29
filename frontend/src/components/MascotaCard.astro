@@ -1,1 +1,69 @@
-<div></div>
+---
+import Button from "./Button.astro"
+
+// const {name,country,info,description,photo,health} = Astro.props;
+const {name,country,info,description,photo,health_tags} = {
+    name: 'LUNA',
+    country: 'Buenos Aires, ARG',
+    info: {
+        nickname: 'Lunita',
+        type: 'Perro',
+        age: 'Adulto',
+        genere: 'Hembra',
+        weight: '4kg',
+    },
+    description: 'Luna es una perrita muy cariñosa y juguetona. Le encanta salir a pasear y jugar con otros perros. Es muy sociable y se lleva bien con niños y adultos. Busca un hogar donde la quieran mucho y la cuiden.',
+    photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa6ANY_WdTtifRWsJ17ON9QHUnIb71lJMBxw&s',
+    health_tags: ['Vacunas al día', 'Desparasitado', 'Esterilizado', 'Saludable', 'Educado'],
+}
+---
+<div class="py-8">
+    <h2 class="text-3xl font-bold mb-6 w-full text-left">
+        Tu Futuro Compañero <span class="text-secondary">{name}</span>
+    </h2>
+    <div class="flex gap-[9rem]">
+        <div class="flex flex-col gap-4 max-w-[400px]">
+            <img src={photo} alt={name} class="rounded-lg size-full" />
+            <div>
+                <h3 class="mb-3">Cuidados y salud</h3>
+                <ul class="flex gap-2 flex-wrap">
+                    {health_tags.map((tag) => (
+                        <li class="px-5 py-1 w-fit text-md text-gray-600 border-[2px] border-[#EDEDED] rounded-[2rem]">
+                            {tag}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+        <div class="flex flex-col gap-8">
+            <div class="flex flex-col gap-3 border-[2px] border-[#EDEDED] bg-[#F9F9F9] rounded-3xl p-6">
+                <h3>{name}</h3>
+                <p>{country}</p>
+                <ul class="grid grid-cols-3">
+                    <li>
+                        <span>Apodo: {info.nickname}</span>
+                    </li>
+                    <li>
+                        <span>Tipo: {info.type}</span>
+                    </li>
+                    <li>
+                        <span>Edad: {info.age}</span>
+                    </li>
+                    <li>
+                        <span>Género: {info.genere}</span>
+                    </li>
+                    <li>
+                        <span>Peso: {info.weight}</span>
+                    </li>
+                </ul>
+                <p class="max-w-[300px]">
+                    {description}
+                </p>
+            </div>
+            <div class="border-[2px] border-[#EDEDED] bg-[#F9F9F9] rounded-3xl p-6 flex flex-col justify-center items-center">
+                <p class="text-secondary font-bold text-xl">¿Te interesa?</p>
+                <Button text="¡Adoptame!" variant="primary"/>
+            </div>
+        </div>
+    </div>
+</div>
