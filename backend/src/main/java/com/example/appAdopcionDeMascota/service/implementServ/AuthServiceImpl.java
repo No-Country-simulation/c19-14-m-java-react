@@ -51,9 +51,11 @@ public class AuthServiceImpl implements IAuthServcivce , UserDetailsService {
         ArrayList<SimpleGrantedAuthority> authorityList = new ArrayList<>();
         authorityList.add(new SimpleGrantedAuthority("ROLE_".concat(createUserRequest.role().name())));
 
-        Direccion direccion = direccionRepository.save(createUserRequest.direccion());
+        Direccion direccion = new Direccion();
+        direccion = direccionRepository.save(createUserRequest.direccion());
 
-        User user = userRepository.save(User.builder()
+        User user = new User();
+        user = userRepository.save(User.builder()
                 .nombre(createUserRequest.nombre())
                 .apellido(createUserRequest.apellido())
                 .imagen_url("default_image_url") // Colocar imagen por defecto
