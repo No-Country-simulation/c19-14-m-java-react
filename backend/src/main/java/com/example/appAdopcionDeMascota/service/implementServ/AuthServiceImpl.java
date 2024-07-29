@@ -48,6 +48,9 @@ public class AuthServiceImpl implements IAuthServcivce , UserDetailsService {
 
         validateRole(createUserRequest.role());
 
+        userRepository.findUserByEmail(createUserRequest.email())
+                .orElseThrow(() -> new UserException("Usuario ya registrado con ese email", HttpStatus.BAD_REQUEST));
+
         ArrayList<SimpleGrantedAuthority> authorityList = new ArrayList<>();
         authorityList.add(new SimpleGrantedAuthority("ROLE_".concat(createUserRequest.role().name())));
 
