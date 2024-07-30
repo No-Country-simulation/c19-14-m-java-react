@@ -52,7 +52,7 @@ public class AuthServiceImpl implements IAuthServcivce , UserDetailsService {
        Optional <User> usu= userRepository.findUserByEmail(createUserRequest.email());
 
        if (usu.isPresent()){
-           throw new UserException("Usuario ya registrado con ese email", HttpStatus.BAD_REQUEST));
+           throw new UserException("Usuario ya registrado con ese email", HttpStatus.BAD_REQUEST);
 
        }
         ArrayList<SimpleGrantedAuthority> authorityList = new ArrayList<>();
