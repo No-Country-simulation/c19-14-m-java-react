@@ -31,6 +31,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -48,9 +49,12 @@ public class AuthServiceImpl implements IAuthServcivce , UserDetailsService {
 
         validateRole(createUserRequest.role());
 
-        userRepository.findUserByEmail(createUserRequest.email())
-                .orElseThrow(() -> new UserException("Usuario ya registrado con ese email", HttpStatus.BAD_REQUEST));
+       Optional <User> usu= userRepository.findUserByEmail(createUserRequest.email());
 
+       if (usu.isPresent()){
+           throw new UserException("Usuario ya registrado con ese email", HttpStatus.BAD_REQUEST));
+
+       }
         ArrayList<SimpleGrantedAuthority> authorityList = new ArrayList<>();
         authorityList.add(new SimpleGrantedAuthority("ROLE_".concat(createUserRequest.role().name())));
 
