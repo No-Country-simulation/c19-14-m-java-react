@@ -1,6 +1,5 @@
 ---
 import Button from "./Button.astro"
-export const prerender = false;
 const {idMascot} = Astro.props;
 const {data} = await fetch(`https://huachitos.cl/api/animal/${idMascot}`).then((res) => res.json());
 const {nombre:name,desc_personalidad:description,imagenes,edad:age,genero:genere,comuna,region} = data
