@@ -85,9 +85,9 @@ import SSOButtons from "../SSOButtons/Buttons.astro"
 
         const data = await response.json();
         console.log(data);
-        if (data.status === 'success') {
+        if (data.token) {
             localStorage.setItem('token', data.token);
-            window.location.href = '/dashboard';
+            window.location.href = '/adopta';
         }
     });
 </script>

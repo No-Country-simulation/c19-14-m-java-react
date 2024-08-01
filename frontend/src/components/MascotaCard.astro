@@ -1,21 +1,29 @@
 ---
 import Button from "./Button.astro"
-
+const {id} = Astro.params;
 // const {name,country,info,description,photo,health} = Astro.props;
-const {name,country,info,description,photo,health_tags} = {
-    name: 'LUNA',
-    country: 'Buenos Aires, ARG',
-    info: {
-        nickname: 'Lunita',
-        type: 'Perro',
-        age: 'Adulto',
-        genere: 'Hembra',
-        weight: '4kg',
-    },
-    description: 'Luna es una perrita muy cariñosa y juguetona. Le encanta salir a pasear y jugar con otros perros. Es muy sociable y se lleva bien con niños y adultos. Busca un hogar donde la quieran mucho y la cuiden.',
-    photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa6ANY_WdTtifRWsJ17ON9QHUnIb71lJMBxw&s',
-    health_tags: ['Vacunas al día', 'Desparasitado', 'Esterilizado', 'Saludable', 'Educado'],
-}
+// const {name,country,info,description,photo,health_tags} = {
+//     name: 'LUNA',
+//     country: 'Buenos Aires, ARG',
+//     info: {
+//         nickname: 'Lunita',
+//         type: 'Perro',
+//         age: 'Adulto',
+//         genere: 'Hembra',
+//         weight: '4kg',
+//     },
+//     description: 'Luna es una perrita muy cariñosa y juguetona. Le encanta salir a pasear y jugar con otros perros. Es muy sociable y se lleva bien con niños y adultos. Busca un hogar donde la quieran mucho y la cuiden.',
+//     photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa6ANY_WdTtifRWsJ17ON9QHUnIb71lJMBxw&s',
+//     health_tags: ['Vacunas al día', 'Desparasitado', 'Esterilizado', 'Saludable', 'Educado'],
+// }
+const {data} = await fetch(`https://huachitos.cl/api/animal/${id}`).then((res) => res.json());
+console.log(data);
+const {nombre:name,desc_personalidad:description,imagenes,edad:age,genero:genere,comuna,region} = data
+console.log(imagenes);
+const photo = imagenes[0].imagen;
+const health_tags = ['Vacunas al día', 'Desparasitado', 'Esterilizado', 'Saludable', 'Educado'];
+const country = `${comuna}, ${region}`;
+const info = {nickname: 'No tiene', type: 'Perro', age, genere, weight: '4kg'};
 ---
 <div class="py-8">
     <h2 class="text-3xl font-bold mb-6 w-full text-left">
@@ -23,9 +31,9 @@ const {name,country,info,description,photo,health_tags} = {
     </h2>
     <div class="flex gap-[9rem]">
         <div class="flex flex-col gap-4 max-w-[400px]">
-            <img src={photo} alt={name} class="rounded-lg size-full" />
+            <img src={photo} alt={name} class="rounded-lg object-cover w-full h-[400px]" />
             <div>
-                <h3 class="mb-3">Cuidados y salud</h3>
+                <h3 class="mb-3 text-secondary text-2xl font-bold">Cuidados y salud</h3>
                 <ul class="flex gap-2 flex-wrap">
                     {health_tags.map((tag) => (
                         <li class="px-5 py-1 w-fit text-md text-gray-600 border-[2px] border-[#EDEDED] rounded-[2rem]">
@@ -37,9 +45,9 @@ const {name,country,info,description,photo,health_tags} = {
         </div>
         <div class="flex flex-col gap-8">
             <div class="flex flex-col gap-3 border-[2px] border-[#EDEDED] bg-[#F9F9F9] rounded-3xl p-6">
-                <h3>{name}</h3>
-                <p>{country}</p>
-                <ul class="grid grid-cols-3">
+                <h3 class="font-bold text-secondary text-2xl">🐶 {name}</h3>
+                <p class="text-[#0A453A] text-xl font-bold">🇦🇷 {country}</p>
+                <ul class="grid grid-cols-3 gap-5">
                     <li>
                         <span>Apodo: {info.nickname}</span>
                     </li>
@@ -56,8 +64,10 @@ const {name,country,info,description,photo,health_tags} = {
                         <span>Peso: {info.weight}</span>
                     </li>
                 </ul>
-                <p class="max-w-[300px]">
-                    {description}
+                <p class="max-w-[300px]" id="description-mascot">
+                    {
+                        description.split('>')[1].split('<')[0]
+                    }
                 </p>
             </div>
             <div class="border-[2px] border-[#EDEDED] bg-[#F9F9F9] rounded-3xl p-6 flex flex-col justify-center items-center">
