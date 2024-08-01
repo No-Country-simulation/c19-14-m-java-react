@@ -1,6 +1,6 @@
 ---
 import Button from "./Button.astro"
-const {id} = Astro.params;
+const {idMascot} = Astro.props;
 // const {name,country,info,description,photo,health} = Astro.props;
 // const {name,country,info,description,photo,health_tags} = {
 //     name: 'LUNA',
@@ -16,7 +16,7 @@ const {id} = Astro.params;
 //     photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa6ANY_WdTtifRWsJ17ON9QHUnIb71lJMBxw&s',
 //     health_tags: ['Vacunas al día', 'Desparasitado', 'Esterilizado', 'Saludable', 'Educado'],
 // }
-const {data} = await fetch(`https://huachitos.cl/api/animal/${id}`).then((res) => res.json());
+const {data} = await fetch(`https://huachitos.cl/api/animal/${idMascot}`).then((res) => res.json());
 console.log(data);
 const {nombre:name,desc_personalidad:description,imagenes,edad:age,genero:genere,comuna,region} = data
 console.log(imagenes);
