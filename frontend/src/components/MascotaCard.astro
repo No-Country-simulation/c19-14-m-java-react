@@ -4,7 +4,6 @@ export const prerender = false;
 const {idMascot} = Astro.props;
 const {data} = await fetch(`https://huachitos.cl/api/animal/${idMascot}`).then((res) => res.json());
 const {nombre:name,desc_personalidad:description,imagenes,edad:age,genero:genere,comuna,region} = data
-// console.log(imagenes);
 const photo = imagenes[0].imagen;
 const health_tags = ['Vacunas al día', 'Desparasitado', 'Esterilizado', 'Saludable', 'Educado'];
 const country = `${comuna}, ${region}`;

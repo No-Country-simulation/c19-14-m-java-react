@@ -11,10 +11,10 @@ const {data} = await fetch(`https://huachitos.cl/api/animales`).then((res) => re
     </div>
     <main class="container">
         {
-            data.map(animal => (
+            data.map((animal) => (
                 <a href={`/mascota/${animal.id}`} class="relative">
-                    <img src={animal.imagen} alt="Imagen mascota">
-                    <h3 class="name_mascot absolute py-4 bottom-0 left-0 font-bold text-center w-full text-xl    text-white">{animal.nombre}</h3>
+                    <img src={animal.imagen} alt={animal.nombre} class="object-cover object-center"/>
+                    <h3 class="name_mascot absolute py-4 bottom-0 left-0 font-bold text-center w-full text-xl text-white">{animal.nombre}</h3>
                 </a>
             ))
         }
