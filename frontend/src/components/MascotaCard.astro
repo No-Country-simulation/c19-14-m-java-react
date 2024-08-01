@@ -1,25 +1,10 @@
 ---
 import Button from "./Button.astro"
+export const prerender = false;
 const {idMascot} = Astro.props;
-// const {name,country,info,description,photo,health} = Astro.props;
-// const {name,country,info,description,photo,health_tags} = {
-//     name: 'LUNA',
-//     country: 'Buenos Aires, ARG',
-//     info: {
-//         nickname: 'Lunita',
-//         type: 'Perro',
-//         age: 'Adulto',
-//         genere: 'Hembra',
-//         weight: '4kg',
-//     },
-//     description: 'Luna es una perrita muy cariñosa y juguetona. Le encanta salir a pasear y jugar con otros perros. Es muy sociable y se lleva bien con niños y adultos. Busca un hogar donde la quieran mucho y la cuiden.',
-//     photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa6ANY_WdTtifRWsJ17ON9QHUnIb71lJMBxw&s',
-//     health_tags: ['Vacunas al día', 'Desparasitado', 'Esterilizado', 'Saludable', 'Educado'],
-// }
 const {data} = await fetch(`https://huachitos.cl/api/animal/${idMascot}`).then((res) => res.json());
-console.log(data);
 const {nombre:name,desc_personalidad:description,imagenes,edad:age,genero:genere,comuna,region} = data
-console.log(imagenes);
+// console.log(imagenes);
 const photo = imagenes[0].imagen;
 const health_tags = ['Vacunas al día', 'Desparasitado', 'Esterilizado', 'Saludable', 'Educado'];
 const country = `${comuna}, ${region}`;
