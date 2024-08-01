@@ -80,7 +80,7 @@ import SSOButtons from "../SSOButtons/Buttons.astro"
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({ userEmail:email, password }),
         });
 
         const data = await response.json();
